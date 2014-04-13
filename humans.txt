@@ -1,0 +1,8 @@
+/* Welcome! */
+/* humanstxt.org */
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: jQuery, Foundation, 
+  Software: Sublime, Git
+  MadeBy: Julius Gromyko | JuleG.com
