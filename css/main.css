@@ -1,7 +1,7 @@
 /* BASE COLORS
 Orange: #e69d68
 Blue: #86c3c4
-Green: #a1a754
+Green: #9DB43C
 Pink: #b889bb
 Dark Background: #262b29
 */
@@ -36,7 +36,7 @@ div.row:nth-child(4n+1) h1{
 }
 
 .mynavstyle li:nth-child(odd) a{
-	color: #a1a754;
+	color: #9DB43C;
 	text-shadow: 0 1px 0 rgba(255,255,0,.2);
 }
 
@@ -48,7 +48,7 @@ div.row:nth-child(4n+1) h1{
 }
 
 .mynavstyle li:nth-child(even) a:hover{
-	background-color: #a1a754 !important;
+	background-color: #9DB43C !important;
 	color: #262b29;
 	box-shadow: 0 .3em 0 rgba(161, 167, 84, .3);
 	text-shadow: 0 1px 0 rgba(255,255,255,.5);
@@ -72,13 +72,14 @@ div.row:nth-child(4n+1) h1{
 }
 
 hr{
-	border-color: #a1a754;
+	border-color: #9DB43C;
+	border-style: dotted;
 	margin: 3em;
 }
 
 /* JUMBOTRON SECTION */
 .jumbotron{
-	background-color: #adb009;
+	background-color: #9DB43C;
 	color: #fff;
 	text-shadow: 0 2px 0 #888;
 }
