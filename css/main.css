@@ -11,6 +11,10 @@ body{
 	color: #86c3c4;
 }
 
+h1{
+	font-family: comfortaa, sans-serif;
+}
+
 div.row:nth-child(4n+1) h1{
 	color: #b889bb;
 }
