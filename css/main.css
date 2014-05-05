@@ -29,6 +29,42 @@ div.row:nth-child(4n+1) h1{
 	padding-top: 2em;
 }
 
+.green{
+	color: #9DB43C;
+}
+
+.orange{
+	color: #e69d68;
+}
+
+.blue{
+	color: #86c3c4;
+}
+
+.pink{
+	color: #b889bb;
+}
+
+.black{
+	color: #000;
+}
+
+.white{
+	color: #fff;
+}
+
+.lightgrey{
+	color: #aaa;
+}
+
+.darkgrey{
+	color: #444;
+}
+
+code{
+	text-shadow: none;
+}
+
 /* NAV BAR STYLES */
 .navbar-brand{
 	margin-top: -0.5em;
