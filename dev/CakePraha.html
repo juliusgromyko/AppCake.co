@@ -69,12 +69,12 @@
           </div>
 
           <div class="col-md-8 col-md-pull-4">
-            <h1>Cake Notify</h1>
+            <h1>Cake Praha</h1>
             <p>
-              Keep your user informed by notifications and alerts
+              Make your application i18n and speak on your users languages
             </p>
             <p>
-              <code>&gt;&gt; haxelib install CakeNotify </code>
+              <code>&gt;&gt; haxelib install CakePraha </code>
             </p>
             <p><a href="/dev/index.html" class="btn btn-primary btn" role="button">See all libs and tutorials</a></p>
           </div>
@@ -84,19 +84,47 @@
 
     <div class="container">
 
+      <!-- ROW 0 -->
+      <div class="row">
+        <h2 class="green text-center">Prerequirements</h2>
+        <div class="col-md-6">
+          <p>You need to put text file with ".txt" or ".csv" extension to "i18n" or any other localization dir in assets directory. You can also add "index" file with list of available locales.</p>
+          <p>We use CSV (comma-separated values) format for all localization strings. Each string should be in new line. You can use "%DIGIT%" format format for specifying dynamic values.</p>
+          <p>There is two special keys can be in each locale:
+            <ul>
+              <li>"%RightToLeft" - set it to TRUE if text should be displayer in right-to-left format</li>
+              <li>"%font" - specify it if you need to use special font for current locale</li>
+            </ul>
+          </p>
+        </div>
+        <div class="col-md-6">
+          <em>Here is a sample of typical index file ("assets/i18n/index.csv"):</em><br>
+          <code>"en","ru","ua", "non-exist"<br></code>
+          <br>
+          <em>Here is a sample of typical locale file ("assets/i18n/en.csv"):</em><br>
+          <code>
+            "%RightToLeft", "No"<br>
+            "%font", "Arial"<br>
+            "test","Hello %1%!\n%2%"<br>
+            "Good" , "Good day, sir %1%!"<br>
+          </code>
+          <br>
+
+          <p>Check "<span class="pink">demo</span>" folder for working sample</p>
+        </div>
+      </div>
+      <!-- /ROW 0 -->
+
+      <hr>
+
       <!-- ROW 1 -->
       <div class="row">
         <div class="col-md-4">
-          <h2 class="green text-center">notify<span class="darkgrey"> ( ) </span></h2>
-          <p class="lightgrey text-center">iOS, OSX</p>
+          <h2 class="green text-center">locale<span class="lightgrey">:String</span></h2>
+          <p class="darkgrey text-center">All platforms</p>
         </div>
         <div class="col-md-8">
-          <p>Schedule local notification</p>
-          <p class="pink"><em class="orange">Body:String</em> – text of notification</p>
-          <p class="pink"><em class="orange">Title:String=""</em> – title of notification</p>
-          <p class="pink"><em class="orange">Time:Int=0</em> – delay in seconds before displaying notification</p>
-          <p class="pink"><em class="orange">Badge:Int=0</em> – set small badge with number over application icon</p>
-          <p class="pink"><em class="orange">UserInfo:String=""</em> – any data that you want to save (json for example)</p>
+          <p>Store current locale name. Correct locale automaticly load if you change this value</p>
         </div>
       </div>
       <!-- /ROW 1 -->
@@ -106,12 +134,11 @@
       <!-- ROW 2 -->
       <div class="row">
         <div class="col-md-4">
-          <h2 class="green text-center">setBadge<span class="darkgrey"> ( ) </span></h2>
-          <p class="lightgrey text-center">iOS, OSX</p>
+          <h2 class="green text-center">isRightToLeft<span class="lightgrey">:Bool</span></h2>
+          <p class="darkgrey text-center">All platforms</p>
         </div>
         <div class="col-md-8">
-          <p>Set small badge with number on application icon</p>
-          <p class="pink"><em class="orange">Badge:Int</em> – number to show</p>
+          <p>Flag represent that current locale is right-to-left display format</p>
         </div>
       </div>
       <!-- /ROW 2 -->
@@ -121,11 +148,11 @@
       <!-- ROW 3 -->
       <div class="row">
         <div class="col-md-4">
-          <h2 class="green text-center">clearNotifications<span class="darkgrey"> ( ) </span></h2>
-          <p class="lightgrey text-center">iOS, OSX</p>
+          <h2 class="green text-center">localeFont<span class="lightgrey">:String</span></h2>
+          <p class="darkgrey text-center">All platforms</p>
         </div>
         <div class="col-md-8">
-          <p>Remove all delivered and scheduled notifications</p>
+          <p>Store font name recomended for this locale, if specified</p>
         </div>
       </div>
       <!-- /ROW 3 -->
@@ -135,17 +162,47 @@
       <!-- ROW 4 -->
       <div class="row">
         <div class="col-md-4">
-          <h2 class="green text-center">alert<span class="darkgrey"> ( ) </span></h2>
-          <p class="lightgrey text-center">iOS, OSX</p>
+          <h2 class="green text-center">paths<span class="lightgrey">:Array&lt;String&gt;</span></h2>
+          <p class="darkgrey text-center">All platforms</p>
         </div>
         <div class="col-md-8">
-          <p>Show simply alert box</p>
-          <p class="pink"><em class="orange">titleText:String</em> – title of alert box</p>
-          <p class="pink"><em class="orange">bodyText:String</em> – body text</p>
-          <p class="pink"><em class="orange">buttonText:String</em> – title of default button</p>
+          <p>Array of default localization files search pathes. You can change it if you use some specific path for your localization files.</p>
+          <p>By defult, it's equal to <code>["i18n","i18","localization","locales","lang","langs"]</code></p>
         </div>
       </div>
       <!-- /ROW 4 -->
+
+      <hr>
+
+      <!-- ROW 5 -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2 class="green text-center">getLocales<span class="darkgrey"> ( ) </span></h2>
+          <h5 class="blue text-center"><span class="lightgrey">return:</span>Array&lt;String&gt;</h5>
+          <p class="darkgrey text-center">All platforms</p>
+        </div>
+        <div class="col-md-8">
+          <p>Return list of known and available locales. By default, values are taken from index file if it's exists.</p>
+        </div>
+      </div>
+      <!-- /ROW 5 -->
+
+      <hr>
+
+      <!-- ROW 6 -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2 class="green text-center">getLine<span class="darkgrey"> ( ) </span></h2>
+          <h5 class="blue text-center"><span class="lightgrey">return:</span>String</h5>
+          <p class="darkgrey text-center">All platforms</p>
+        </div>
+        <div class="col-md-8">
+          <p>Return localized string</p>
+          <p class="pink"><em class="orange">name:String</em> – string name</p>
+          <p class="pink"><em class="orange">?keys:Array&lt;String&gt;</em> – array of strings, that should be putted instead of <code>%1%,%2%,%3%...</code> marks</p>
+        </div>
+      </div>
+      <!-- /ROW 6 -->
 
       <hr>
     </div>
